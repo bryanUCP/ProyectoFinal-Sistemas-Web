@@ -14,4 +14,3 @@ registrar.addEventListener("click", () => {
             console.log(error)
         })
 });
-

@@ -59,5 +59,19 @@ public class App
             return respuesta;
         });
 
+        //Validacion de login
+        get("/verificarUsuario", (req, res)->{
+            before((req2, res2) -> res.type("application/txt"));
+            String email = req.queryParams("email"); //Recuperamos los datos del .js
+            String password = req.queryParams("password");
+            DAO dao = new DAO();
+            String resultado = dao.verificarUsuario(email, password); //los datos los mandamos al DAO
+            if(resultado=="Profesor"){
+                return resultado;
+            }else{
+                return resultado;
+            }
+        });
+
     }
 }

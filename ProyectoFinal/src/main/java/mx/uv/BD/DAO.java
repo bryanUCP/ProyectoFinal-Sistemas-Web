@@ -2,11 +2,11 @@ package mx.uv.BD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.sql.Statement;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAO {
     private conexion conexion = new conexion();
@@ -49,7 +49,63 @@ public class DAO {
         }
         return msj;
     }
+    //---------------------------------------------------------------------------------------------------------------
+
+    public String verificarUsuario(String email, String password){
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        String resultado="";
+        conn = conexion.getConnection();
+        try{
+            String sql = "SELECT * FROM usuarios WHERE email = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+            rs = stm.executeQuery();
+            //rs = stm.executeQuery(sql);
+
+            while (rs.next()){
+                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("password"), rs.getString("rol"));
+                if(u.getPassword().equals(password)){
+                    if(u.getRol().equals("Profesor")){
+                        System.out.println("If profesor");
+                        System.out.println(u.getNom());
+                        resultado = "Profesor";
+                        return resultado;
+                    }else{
+                        System.out.println("If Estudiante");
+                        System.out.println(u.getNom());
+                        resultado ="Estudiante";
+                        return resultado;   
+                    }
+                }
+
+            }
+
+            /*while (rs.next()){
+                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("password"), rs.getString("rol"));
+                if(u.getEmail().equals(email) && u.getPassword().equals(password)  && u.getRol().equals("Profesor")){
+                        resultado= "Profesor";
+                        System.out.println(u.getEmail());
+                        
+                    
+                    }
+                if(u.getEmail().equals(email) && u.getPassword().equals(password)  && u.getRol().equals("Estudiante")){
+                        resultado= "Estudiante";
+                        System.out.println(u.getEmail());
+                    }
+
+            }*/
+                
+            return resultado;
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
+    }
 }
-//---------------------------------------------------------------------------------------------------------------
+
+
 
 
