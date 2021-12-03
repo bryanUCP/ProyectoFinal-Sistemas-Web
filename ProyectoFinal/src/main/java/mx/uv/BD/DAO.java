@@ -68,12 +68,12 @@ public class DAO {
                 Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("password"), rs.getString("rol"));
                 if(u.getPassword().equals(password)){
                     if(u.getRol().equals("Profesor")){
-                        System.out.println("If profesor");
+                        System.out.println("if profesor");
                         System.out.println(u.getNom());
                         resultado = "Profesor";
                         return resultado;
                     }else{
-                        System.out.println("If Estudiante");
+                        System.out.println("if Estudiante");
                         System.out.println(u.getNom());
                         resultado ="Estudiante";
                         return resultado;   
