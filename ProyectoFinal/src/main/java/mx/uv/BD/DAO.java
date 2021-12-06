@@ -82,7 +82,7 @@ public class DAO {
 
             }
 
-            /*while (rs.next()){
+            while (rs.next()){
                 Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("password"), rs.getString("rol"));
                 if(u.getEmail().equals(email) && u.getPassword().equals(password)  && u.getRol().equals("Profesor")){
                         resultado= "Profesor";
@@ -95,7 +95,7 @@ public class DAO {
                         System.out.println(u.getEmail());
                     }
 
-            }*/
+            }
                 
             return resultado;
             
