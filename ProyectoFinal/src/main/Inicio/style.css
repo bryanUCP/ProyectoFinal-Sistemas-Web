@@ -5,7 +5,7 @@
   }
   
   body {
-    background-image: url('/ProyectoFinal/src/main/Imagenes/fondo.jpg');
+    background-image: url('/ProyectoFinal/src/main/images/demo/backgrounds/01.png');
   }
   
   .form-register {
@@ -64,4 +64,6 @@
     font-size: 16px;
   }
 
-    
+ /*----- ----------------------------*/
+
+ 

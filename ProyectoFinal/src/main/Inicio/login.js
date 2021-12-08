@@ -10,12 +10,20 @@ iniciar.addEventListener("click", function () {
     })
         .then(function (res) {
             let resul = res.data; //Recibe los datos del backend - App.java
+            if(resul !=null){
             if (resul == "Profesor") {
                 alert("profesor");
                 window.location.replace('profesor.html'); 
-            } else {
+            } 
+            if(resul == "Estudiante"){
                 alert("estudiante");
-                window.location.replace('estudiante.html'); 
+                window.location.replace('alumno.html'); 
             }
+          }else{
+              alert("Datos no encontrados");
+          }
         })
+        .catch(function (error) {
+            console.log(error);
+        });
 });

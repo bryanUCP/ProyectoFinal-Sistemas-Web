@@ -3,11 +3,11 @@ package mx.uv.BD;
 // DTO
 public class cuestionarioAlumno{
     private int id;
-    private int idAlumno;
+    private String idAlumno;
     private int idcuesProf;
     private double calificacion;
 
-    public cuestionarioAlumno(int id, int idAlumno, int idcuesProf, double calificacion){
+    public cuestionarioAlumno(int id, String idAlumno, int idcuesProf, double calificacion){
         this.idAlumno = idAlumno;
         this.idcuesProf = idcuesProf;
         this.calificacion = calificacion;
@@ -17,7 +17,7 @@ public class cuestionarioAlumno{
     public int getId() {
         return id;
     }
-    public int getIdAlumno() {
+    public String getIdAlumno() {
         return idAlumno;
     }
     public int getIdcuesProf() {
@@ -27,7 +27,7 @@ public class cuestionarioAlumno{
         return calificacion;
     }
     
-    public void setIdAlumno(int idAlumno) {
+    public void setIdAlumno(String idAlumno) {
         this.idAlumno = idAlumno;
     }
     public void setIdcuesProf(int idcuesProf) {

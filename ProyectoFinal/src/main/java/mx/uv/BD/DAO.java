@@ -18,7 +18,7 @@ public class DAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "INSERT INTO usuarios (id, nombre, apellido, email, password, rol) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO usuarios (id, nombre, apellido, email, pasword, rol) VALUES (?, ?, ?, ?, ?, ?)";
             prestm = conn.prepareStatement(sql);
             prestm.setString(1, u.getId());
             prestm.setString(2, u.getNom());
@@ -65,25 +65,28 @@ public class DAO {
             //rs = stm.executeQuery(sql);
 
             while (rs.next()){
-                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("password"), rs.getString("rol"));
+                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("pasword"), rs.getString("rol"));
                 if(u.getPassword().equals(password)){
                     if(u.getRol().equals("Profesor")){
-                        System.out.println("if profesor");
                         System.out.println(u.getNom());
                         resultado = "Profesor";
                         return resultado;
-                    }else{
-                        System.out.println("if Estudiante");
-                        System.out.println(u.getNom());
-                        resultado ="Estudiante";
-                        return resultado;   
                     }
+
+                    if(u.getRol().equals("Estudiante")){
+                        System.out.println(u.getNom());
+                        resultado = "Estudiante";
+                        return resultado;
+                    }
+                }else{
+                    System.out.println("Password incorrecto");
+                    return null;
                 }
 
             }
 
-            while (rs.next()){
-                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("password"), rs.getString("rol"));
+            /*while (rs.next()){
+                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("pasword"), rs.getString("rol"));
                 if(u.getEmail().equals(email) && u.getPassword().equals(password)  && u.getRol().equals("Profesor")){
                         resultado= "Profesor";
                         System.out.println(u.getEmail());
@@ -95,14 +98,13 @@ public class DAO {
                         System.out.println(u.getEmail());
                     }
 
-            }
-                
-            return resultado;
+            }*/
+            return null;   
             
         }catch(Exception e){
             e.printStackTrace();
         }
-        return resultado;
+        return null;
     }
 }
 
