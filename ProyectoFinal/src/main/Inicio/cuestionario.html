@@ -51,16 +51,26 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <article>
 
-      <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
-        <form id=pregunta0 action="" method="post">
-          <div class="preguntas">
-            <label for=""> Ingrese su pregunta </label>
-            <input type="text" placeholder="pregunta" id=pregunta0 style="color: black;">
-            <br />
-          </div>
-        </form>
-        <input type="submit" values="guardar formulario" style="color: black">
-      </div>
+      <form action="" >
+        <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
+          <p><label>Pregunta: <input type="text" id="pregunta" style="color:black"></label></p>
+          <p><label>Respuesta: <textarea id=respuesta" style="color:black"></textarea></label></p>
+        </div>
+        <p>
+          <input type="submit"  id="guardarFormulario" value="Guardar" style="color: black">
+        </p>
+        <br />
+        <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
+          <p><label>Pregunta: <input type="text" id="pregunta" style="color:black"></label></p><br>
+            <p><label>Respuesta1: <input type="text" id="pregunta" style="color:black"></label></p>
+            <p><label>Respuesta2: <input type="text" id="pregunta" style="color:black"></label></p>
+            <p><label>Respuesta3: <input type="text" id="pregunta" style="color:black"></label></p>
+            <p><label>Respuesta4: <input type="text" id="pregunta" style="color:black"></label></p>
+        </div>
+        <p>
+          <input type="submit"  id="guardarFormulario" value="Guardar" style="color: black">
+        </p>
+      </form>
      
     </article>
     <!-- ################################################################################################ -->
