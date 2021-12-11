@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+//import java.sql.Statement;
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class DAO {
     private conexion conexion = new conexion();
@@ -56,7 +56,6 @@ public class DAO {
         PreparedStatement stm = null;
         ResultSet rs = null;
         Connection conn = null;
-        String resultado="";
         conn = conexion.getConnection();
         try{
             String sql = "SELECT * FROM usuarios WHERE email = ?";

@@ -23,33 +23,6 @@ public class preguntasRespuestas {
         this.respuestaCorrecta = respuestaCorrecta;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setNombreCuestionario(String nombreCuestionario) {
-        this.nombreCuestionario = nombreCuestionario;
-    }
-    public void setPregunta(String pregunta) {
-        this.pregunta = pregunta;
-    }
-    public void setRes1(String res1){
-        this.res1=res1;
-    }
-    public void setRes2(String res2){
-        this.res2=res2;
-    }
-    public void setRes3(String res3){
-        this.res3=res3;
-    }
-    public void setRes4(String res4){
-        this.res4=res4;
-    }
-    public void setRespuestaCorrecta(String respuestaCorrecta){
-        this.respuestaCorrecta=respuestaCorrecta;
-    }
-    
-
-
     public int getId() {
         return id;
     }
@@ -73,6 +46,32 @@ public class preguntasRespuestas {
     }
     public String getRespuestaCorrecta() {
         return respuestaCorrecta;
+    }
+    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setNombreCuestionario(String nombreCuestionario) {
+        this.nombreCuestionario = nombreCuestionario;
+    }
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+    public void setRes1(String res1){
+        this.res1=res1;
+    }
+    public void setRes2(String res2){
+        this.res2=res2;
+    }
+    public void setRes3(String res3){
+        this.res3=res3;
+    }
+    public void setRes4(String res4){
+        this.res4=res4;
+    }
+    public void setRespuestaCorrecta(String respuestaCorrecta){
+        this.respuestaCorrecta=respuestaCorrecta;
     }
     
 }
