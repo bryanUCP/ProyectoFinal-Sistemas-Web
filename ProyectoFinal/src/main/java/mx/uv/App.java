@@ -3,12 +3,24 @@ package mx.uv;
 import static spark.Spark.*;
 
 
+import spark.template.velocity.VelocityTemplateEngine;
+
+import spark.ModelAndView;
+import java.util.HashMap;
+import java.util.Map;
+
 import java.util.UUID;
 
 import com.google.gson.*;
 
 import mx.uv.BD.DAO;
+import mx.uv.BD.DAOcuestionarioProfe;
+import mx.uv.BD.DAOpreguntasRespuestas;
 import mx.uv.BD.Usuario;
+import mx.uv.BD.cuestionarioProfesor;
+import mx.uv.BD.preguntasRespuestas;
+
+
 
 
 /**
@@ -22,6 +34,7 @@ public class App
 
     public static void main( String[] args )
     {
+
         /*port(1234);
         //staticFiles.location("/");
 
@@ -30,6 +43,7 @@ public class App
             return null;
         });*/
 
+        //Map<String, Object> variables = new HashMap<>();
         
         System.out.println( "Hello World!" );
 
@@ -50,31 +64,62 @@ public class App
 
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
-        //Agregar usuario
+        /*------------------ Agregar usuario ---------------------*/
         post("/usuario", (req, res) -> {
             // Insertamos un nuevo usuario
             String json = req.body();
             Usuario u = gson.fromJson(json, Usuario.class);
-            String id = UUID.randomUUID().toString();
-            u.setId(id);
-            //usuarios.put(id, u);
 
             DAO dao = new DAO();
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("status", dao.insertarUsuario(u));
-            respuesta.addProperty("id", id);
             return respuesta;
         });
 
-        //Validacion de login
+        /* -------------------- Agregar cuestionario -------------------------*/
+        post("/cuestionarioProfe", (req, res) -> {
+            String json = req.body();
+            cuestionarioProfesor cp = gson.fromJson(json, cuestionarioProfesor.class);
+
+            DAOcuestionarioProfe daoCP = new DAOcuestionarioProfe();
+            JsonObject respuesta = new JsonObject();
+            respuesta.addProperty("status", daoCP.insertarCuestionarioP(cp));
+            return respuesta;
+            
+        });
+
+        /* -------------------- Agregar pregunta -------------------------*/
+        post("/AgregarPregunta", (req, res) -> {
+            String json = req.body();
+            preguntasRespuestas pr = gson.fromJson(json, preguntasRespuestas.class);
+
+            DAOpreguntasRespuestas daoPR = new DAOpreguntasRespuestas();
+            JsonObject respuesta = new JsonObject();
+            respuesta.addProperty("status", daoPR.insertarPregunta(pr));
+            return respuesta;
+            
+        });
+
+        /* -------------------------- Validacion de login ---------------------------*/
         get("/verificarUsuario", (req, res)->{
-            //before((req2, res2) -> res.type("application/txt"));
+            Boolean resultado;
+            DAO dao = new DAO();
+            Usuario u;
             String email = req.queryParams("email"); //Recuperamos los datos del .js
             String password = req.queryParams("password");
-            DAO dao = new DAO();
-            String resultado = dao.verificarUsuario(email, password); //los datos los mandamos al DAO
-            if(resultado=="Profesor" || resultado=="Estudiante"){
-                return resultado;
+            u = dao.verificarUsuario(email); //los datos los mandamos al DAO
+            if(u!=null){
+                if(password.equals(String.valueOf(u.getPassword()))){
+                    if(u.getRol().equals("Profesor")){
+                        resultado = true;
+                        return resultado;
+                    }else{
+                        resultado = false;
+                        return resultado;
+                    }
+                }else{
+                    return null;
+                }
             }else{
                 return null;
             }
@@ -82,3 +127,4 @@ public class App
 
     }
 }
+

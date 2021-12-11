@@ -8,7 +8,8 @@ registrar.addEventListener("click", () => {
         rol: document.getElementById("rol").value
     })
         .then(function (res) {
-            alert("Usuario:" + res.data.status + " id:" + res.data.id);
+            //alert("Usuario:" + res.data.status + " id:" + res.data.id);
+            alert("Usuario:" + res.data.status);
         })
         .catch(function (error) {
             console.log(error)

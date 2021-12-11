@@ -16,7 +16,6 @@ Licence URI: https://www.os-templates.com/template-terms
 <link href="/ProyectoFinal/src/main/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link href="/ProyectoFinal/src/main/Inicio/style.css" rel="stylesheet" type="text/css" media="all">
 
-
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -47,30 +46,41 @@ Licence URI: https://www.os-templates.com/template-terms
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
+
   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <article>
 
+      <!------ APARTADO PARA LLENAR EL CUESTIONARIO DE PREGUNTAS-->
       <form action="" >
         <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
-          <p><label>Pregunta: <input type="text" id="pregunta" style="color:black"></label></p>
-          <p><label>Respuesta: <textarea id=respuesta" style="color:black"></textarea></label></p>
+          <p><label>Escriba el nombre de cuestionario a llenar: <input type="text" id="nombreCuestionario" style="color:black"></label></p>
+        <br />
         </div>
-        <p>
+        <!--p>
           <input type="submit"  id="guardarFormulario" value="Guardar" style="color: black">
-        </p>
+        </p-->
         <br />
         <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
           <p><label>Pregunta: <input type="text" id="pregunta" style="color:black"></label></p><br>
-            <p><label>Respuesta1: <input type="text" id="pregunta" style="color:black"></label></p>
-            <p><label>Respuesta2: <input type="text" id="pregunta" style="color:black"></label></p>
-            <p><label>Respuesta3: <input type="text" id="pregunta" style="color:black"></label></p>
-            <p><label>Respuesta4: <input type="text" id="pregunta" style="color:black"></label></p>
+            <p><label>Respuesta1: <input type="text" id="res1" style="color:black"></label></p>
+            <p><label>Respuesta2: <input type="text" id="res2" style="color:black"></label></p>
+            <p><label>Respuesta3: <input type="text" id="res3" style="color:black"></label></p>
+            <p><label>Respuesta4: <input type="text" id="res4" style="color:black"></label></p>
+            <p><label>RespuestaCorrecta: <input type="text" id="respuestaCorrecta" style="color:black"></label></p>
         </div>
         <p>
-          <input type="submit"  id="guardarFormulario" value="Guardar" style="color: black">
+          <br/>
+          <button class= "botons" type="button" style="color: white; font-size: 16px; border-radius: 8px; background-color: #555555;" id="agregarPregunta">Agregar pregunta</button>
         </p>
       </form>
+
+      <span>
+        <ul id="id"></ul>
+      </span>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="acciones.js"></script>
+
      
     </article>
     <!-- ################################################################################################ -->

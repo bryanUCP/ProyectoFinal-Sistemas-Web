@@ -14,6 +14,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="/ProyectoFinal/src/main/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="/ProyectoFinal/src/main/Inicio/style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -76,27 +77,58 @@ Licence URI: https://www.os-templates.com/template-terms
         
         <h4 class="heading">Cuestionarios</h4>
         
-        <a href="#" class="btn-neon">
+        <a href="#openModal" class="btn-neon">
 
           <span id="span1"></span>
           <span id="span2"></span>
           <span id="span3"></span>
           <span id="span4"></span>
-          Agregar
+          Crear cuestionario
         </a>
 
+        <button class= "botons" type="button" id="mostrarCuestionarios">mostrar cuestionarios</button>
 
-        
+        <!--VENTANA MODAL-->
+        <div id="openModal" class="modalDialog">
+          <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>Nuevo Cuestionario</h2><br/>
+            <input class="controls" type="text" name="" id="correoProfesor" placeholder="Introduzca su correo">
+            <input class="controls" type="text" name="" id="nombre" placeholder="nombre de cuestionario">
+            <input class="controls" type="text" name="" id="vigencia" placeholder="Vigencia">
+            <input class="controls" type="text" name="" id="EE" placeholder="Experiencia Educativa">
+            <button class= "botons" type="button" id="guardarCuestionario">Guadar cuestionario</button>
+          </div>
+        </div>
+
+        <span>
+          <ul id="id"></ul>
+        </span>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="acciones.js"></script>
+        <!------------------>
         
       </div>
-      <ul class="nospace group grid-3">
+
+      <div class="sectiontitle">
+        <a href="cuestionario.html" class="btn-neon">
+
+          <span id="span1"></span>
+          <span id="span2"></span>
+          <span id="span3"></span>
+          <span id="span4"></span>
+          Agregar preguntas a un cuestionario
+        </a>
+      </div>
+
+
+      <!--ul class="nospace group grid-3">
         
         <li class="one_third">
           
           <article><a href="#"><i class="fas fa-hockey-puck"></i></a>
             <h6 class="heading">Base de datos</h6>
             <p>Una base de datos es una recopilación organizada de información o datos estructurados, que normalmente se almacena de forma electrónica en un sistema informático..</p>
-            <!--footer><a href="cuestionario.html">realizar cuestionario &raquo;</a></footer-->
             <footer><button class= "botons" type="button" id="cuestionario">Realizar cuestionario</button></footer>
           </article>
         </li>
@@ -115,7 +147,7 @@ Licence URI: https://www.os-templates.com/template-terms
           </article>
         </li>
         
-      </ul>
+      </ul-->
     </section>
     <!-- ################################################################################################ -->
     <!-- / main body -->

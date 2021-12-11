@@ -11,12 +11,12 @@ iniciar.addEventListener("click", function () {
         .then(function (res) {
             let resul = res.data; //Recibe los datos del backend - App.java
             if(resul !=null){
-            if (resul == "Profesor") {
-                alert("profesor");
+           if (resul == true) {
+                alert("Profesor "+resul);
                 window.location.replace('profesor.html'); 
             } 
-            if(resul == "Estudiante"){
-                alert("estudiante");
+            if(resul == false){
+                alert("Estudiante");
                 window.location.replace('alumno.html'); 
             }
           }else{

@@ -3,14 +3,14 @@ package mx.uv.BD;
 // DTO
 public class cuestionarioProfesor {
     private int id;
-    private String idProfesor;
-    private String fecha;
+    private String correoProfesor;
+    private String nombre;
     private String vigencia;
     private String EE;
 
-    public cuestionarioProfesor(int id, String idProfesor, String fecha, String vigencia, String EE) {
-        this.idProfesor = idProfesor;
-        this.fecha = fecha;
+    public cuestionarioProfesor(int id, String correoProfesor, String nombre, String vigencia, String EE) {
+        this.correoProfesor = correoProfesor;
+        this.nombre = nombre;
         this.vigencia = vigencia;
         this.EE = EE;
         this.id = id;
@@ -19,11 +19,11 @@ public class cuestionarioProfesor {
     public int getId() {
         return id;
     }
-    public String getIdP() {
-        return idProfesor;
+    public String getCorreoProfesor() {
+        return correoProfesor;
     }
-    public String getFecha() {
-        return fecha;
+    public String getNombre() {
+        return nombre;
     }
     public String getVigencia() {
         return vigencia;
@@ -32,11 +32,11 @@ public class cuestionarioProfesor {
         return EE;
     }
     
-    public void setIdP(String idProfesor) {
-        this.idProfesor = idProfesor;
+    public void setCorreoProfesor(String correoProfesor) {
+        this.correoProfesor = correoProfesor;
     }
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     public void setvigencia(String vigencia) {
         this.vigencia = vigencia;

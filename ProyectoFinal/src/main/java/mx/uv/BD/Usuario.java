@@ -2,25 +2,21 @@ package mx.uv.BD;
 
 // DTO
 public class Usuario {
-    private String id;
     private String nombre;
     private String apellido;
     private String email;
     private String password;
     private String rol;
 
-    public Usuario(String id, String nombre, String apellido, String email, String password, String rol) {
+    public Usuario(String nombre, String apellido, String email, String password, String rol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.password = password;
         this.rol = rol;
-        this.id = id;
     }
     
-    public String getId() {
-        return id;
-    }
+
     public String getNom() {
         return nombre;
     }
@@ -51,8 +47,5 @@ public class Usuario {
     }
     public void setPassword(String password) {
         this.password = password;
-    }
-    public void setId(String id) {
-        this.id = id;
     }
 }
