@@ -27,7 +27,7 @@ Licence URI: https://www.os-templates.com/template-terms
   <header id="header" class="hoc clear">
     <div id="logo" class="fl_left"> 
       <!-- ################################################################################################ -->
-      <h1><a href="index.html">alumno "Nombre"</a></h1>
+      <h1><a href="index.html">alumno </a></h1>
       <!-- ################################################################################################ -->
     </div>
     <nav id="mainav" class="fl_right"> 
@@ -48,7 +48,30 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <article>
      
-    
+    <!-- ESCRIBIMOS Y MANDAMOS EL CORREO AL BACKEND PARA HACER LA CONSULTA Y DESPUES RECUPERAMOS LOS DATOS-->
+    <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
+      <p><label>Escriba su correo: <input type="email" id="correoProfesor" style="color:black"></label></p>
+    <br/>
+    <p>
+      <button class= "botons" type="button" style="color: white; font-size: 16px; border-radius: 8px; background-color: #555555;" id="perfilProfesor">Mostrar informacion</button>
+    </p>
+    </div>
+    <br />
+      <div class="pregresp" style="border: 1px solid black; font-size: 20px;">
+        <br/>
+        <span>
+          <ul id="nombre"></ul> <!--CON LOS ID HACEMOS PARA MOSTRAR LOS DATOS-->
+          <ul id="apellido"></ul>
+          <ul id="email"></ul>
+          <ul id="pasword"></ul>
+          <ul id="rol"></ul>
+          <br />
+      </span>
+      </div>
+      
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="/ProyectoFinal/src/main/js/informacionUsuario.js"></script>
+
      
      
     </article>

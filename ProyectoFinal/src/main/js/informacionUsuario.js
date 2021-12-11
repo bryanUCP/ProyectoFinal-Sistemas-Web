@@ -24,7 +24,7 @@ informacion.addEventListener("click", function () {
                 let pasword1 = document.createElement("li");
                 let rol1 = document.createElement("li");
 
-                nombre1.textContent ="Nombre de profesor: "+json[clave].nombre;
+                nombre1.textContent ="Nombre: "+json[clave].nombre;
                 apellido1.textContent = "APellido: "+json[clave].apellido;
                 email1.textContent ="Correo: "+json[clave].email;
                 pasword1.textContent ="password "+json[clave].password;
