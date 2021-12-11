@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.sql.Statement;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAO {
     private conexion conexion = new conexion();
@@ -78,49 +78,97 @@ public class DAO {
         return null;
     }
 
-
-
-    /*public String verificarUsuario(String email, String password){
+    public List<Usuario> informacionProfesor(String email){
         PreparedStatement stm = null;
         ResultSet rs = null;
         Connection conn = null;
-        String resultado="";
+        List<Usuario> resultado = new ArrayList<>(); 
+
         conn = conexion.getConnection();
-        try{
-            String sql = "SELECT * FROM usuarios WHERE email = ?";
+        try {
+            String sql = "SELECT * FROM usuarios where email=?";
             stm = conn.prepareStatement(sql);
             stm.setString(1, email);
             rs = stm.executeQuery();
-            //rs = stm.executeQuery(sql);
-
             while (rs.next()){
-                Usuario u = new Usuario(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("pasword"), rs.getString("rol"));
-                if(u.getPassword().equals(password)){
-                    if(u.getRol().equals("Profesor")){
-                        //cp.setIdP(u.getId());
-                        System.out.println(u.getNom());
-                        resultado = "Profesor";
-                        return resultado;
-                    }
-
-                    if(u.getRol().equals("Estudiante")){
-                        System.out.println(u.getNom());
-                        resultado = "Estudiante";
-                        return resultado;
-                    }
-                }else{
-                    System.out.println("Password incorrecto");
-                    return null;
-                }
-
+                Usuario u = new Usuario(rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("pasword"), rs.getString("rol"));
+                System.out.print(u.getEmail());
+                resultado.add(u);
             }
-            return null;   
-            
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (stm != null){
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    stm = null;
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    rs = null;
+                    e.printStackTrace();
+                }
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+        return resultado;
+    }
+
+
+    /*public List<Usuario> informacionProfesor(String email) {
+        Statement stm = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        List<Usuario> resultado = new ArrayList<>(); 
+
+        conn = conexion.getConnection();
+        try {
+            String sql = "SELECT * FROM usuarios where email =" + email;
+            stm = conn.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()){
+                Usuario u = new Usuario(rs.getString("nombre"), rs.getString("apellido"),  rs.getString("email"), rs.getString("pasword"), rs.getString("rol"));
+                System.out.print(u.getEmail());
+                resultado.add(u);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (stm != null){
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    stm = null;
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    rs = null;
+                    e.printStackTrace();
+                }
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return resultado;
     }*/
+
+
 }
 
 

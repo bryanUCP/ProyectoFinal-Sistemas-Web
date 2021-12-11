@@ -10,8 +10,16 @@ AgregarPregunta.addEventListener("click", () => {
         respuestaCorrecta: document.getElementById("respuestaCorrecta").value
     })
         .then(function (res) {
-            alert("Pregunta:" + res.data.status);
+            alert("Pregunta:" + res.data.status); //muestra un mensaje de que se agrega la pregunta de forma correcta
             
+            //PARA LIMPIAR LOS TEXT DE LOS INPUT DE AGREGAR PREGUNTA
+            document.getElementById("pregunta").value="";
+            document.getElementById("res1").value="";
+            document.getElementById("res2").value="";
+            document.getElementById("res3").value="";
+            document.getElementById("res4").value="";
+            document.getElementById("respuestaCorrecta").value="";
+            document.getElementById("nombreCuestionario").disabled=true; //para bloquear el apartado input text del nombre cuestionario
         })
         .catch(function (error) {
             console.log(error)

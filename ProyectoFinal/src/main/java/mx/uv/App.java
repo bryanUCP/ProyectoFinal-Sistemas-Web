@@ -100,6 +100,14 @@ public class App
             
         });
 
+        /*----------------- BUSCAR INFORMACION DEL PROFESOR ------------------*/ 
+        get("/InfoProfesor", (req, res) -> {
+            before((req2, res2) -> res.type("application/json"));
+            String email = req.queryParams("email2"); //Recuperamos los datos del .js
+            DAO dao = new DAO();
+            return gson.toJson(dao.informacionProfesor(email));
+        });
+
         /* -------------------------- Validacion de login ---------------------------*/
         get("/verificarUsuario", (req, res)->{
             Boolean resultado;
